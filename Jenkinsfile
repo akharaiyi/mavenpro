@@ -8,12 +8,17 @@ pipeline {
         }
         stage('Test') { 
             steps {
-               sh "mvn package"
+               sh "mvn test"
             }
         }
-        stage('Deploy') { 
+        stage('package') { 
             steps {
-                sh " echo deploying to tomcats" 
+                sh " mvn test" 
+            }
+        }
+        stage('deploy'){
+            step{
+             echo " deploy to tomcat server on ec2"   
             }
         }
     }
