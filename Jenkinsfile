@@ -16,7 +16,7 @@ pipeline {
                 sh " mvn test" 
             }
         }
-        stage('deploy'){
+        stages('deploy'){
             step{
              echo " deploy to tomcat server on ec2"   
             }
